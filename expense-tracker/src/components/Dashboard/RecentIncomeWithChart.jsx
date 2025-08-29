@@ -1,7 +1,7 @@
 // src/components/Dashboard/RecentIncomeWithChart.jsx
 
 import React, { useEffect, useState } from "react";
-import CustomPieChart from "../charts/CustomPieChart";
+import CustomPieChart from "../Charts/CustomPieChart";
 import { useCurrency } from "../../hooks/useCurrency";
 
 // a range of greens from light → dark

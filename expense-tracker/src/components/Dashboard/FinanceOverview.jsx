@@ -1,7 +1,7 @@
 // src/components/Dashboard/FinanceOverview.jsx
 
 import React from "react";
-import CustomPieChart from "../charts/CustomPieChart";
+import CustomPieChart from "../Charts/CustomPieChart";
 import { useCurrency } from "../../hooks/useCurrency";
 
 // match the Home.jsx logos: green → balance, black → expenses, grey → income
