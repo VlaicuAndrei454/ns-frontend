@@ -1,7 +1,7 @@
 // src/pages/Dashboard/Stocks.jsx
 
 import React, { useEffect, useState } from "react";
-import DashboardLayout from "../../components/layouts/DashboardLayout";
+import DashboardLayout from "../../components/Layouts/DashboardLayout";
 import { useUserAuth } from "../../hooks/useUserAuth";
 import { useCurrency } from "../../hooks/useCurrency";
 import axiosInstance from "../../utils/axiosInstance";
