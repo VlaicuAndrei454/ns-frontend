@@ -18,7 +18,7 @@ jobs:
       - name: Build and Push Docker Image
         uses: docker/build-push-action@v5
         with:
-          context: .
+          context: /expense-tracker
           push: true
           tags: docker.io/${{ secrets.DOCKERHUB_USERNAME }}/ns-frontend:${{ github.ref_name }}-${{ github.run_number }}
           build-args: |
