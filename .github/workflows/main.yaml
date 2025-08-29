@@ -1,0 +1,25 @@
+name: Frontend -> Docker Hub
+
+on: workflow_dispatch
+    
+jobs:
+  build-push:
+    runs-on: ubuntu-latest
+    environment: dev
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Build and Push Docker Image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: true
+          tags: docker.io/${{ secrets.DOCKERHUB_USERNAME }}/ns-frontend:${{ github.ref_name }}-${{ github.run_number }}
+          build-args: |
+            VITE_API_BASE_URL=${{ secrets.VITE_API_BASE_URL }}
