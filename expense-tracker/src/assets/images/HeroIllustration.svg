@@ -1,0 +1,25 @@
+<!-- assets/HeroIllustration.svg -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 320" width="200" height="320">
+  <!-- Phone body -->
+  <rect x="16" y="16" width="168" height="288" rx="24" fill="#FFFFFF" stroke="#38A169" stroke-width="4"/>
+  
+  <!-- Screen chart bars -->
+  <rect x="56" y="212" width="16" height="72" rx="4" fill="#48BB78"/>
+  <rect x="96" y="180" width="16" height="104" rx="4" fill="#68D391"/>
+  <rect x="136" y="148" width="16" height="136" rx="4" fill="#9AE6B4"/>
+  
+  <!-- Line graph -->
+  <polyline
+    points="64,244 88,196 120,220 152,168"
+    fill="none"
+    stroke="#2F855A"
+    stroke-width="4"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+  <!-- Data points -->
+  <circle cx="64" cy="244" r="5" fill="#2F855A"/>
+  <circle cx="88" cy="196" r="5" fill="#2F855A"/>
+  <circle cx="120" cy="220" r="5" fill="#2F855A"/>
+  <circle cx="152" cy="168" r="5" fill="#2F855A"/>
+</svg>
