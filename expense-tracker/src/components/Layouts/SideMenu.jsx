@@ -1,17 +1,34 @@
 // src/components/Layouts/SideMenu.jsx
 
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { SIDE_MENU_DATA } from "../../utils/data";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../../context/UserContext";
 import CharAvatar from "../Cards/CharAvatar";
-import { LuLogOut } from "react-icons/lu"; // ← use the installed icon
+import { LuLogOut } from "react-icons/lu";
 
-const APP_VERSION = "v0.1.0"; // ← hardcoded version
+const APP_VERSION = "v0.1.0"; // frontend version (hardcoded in FE)
 
 const SideMenu = ({ activeMenu }) => {
   const { user, clearUser } = useContext(UserContext);
   const navigate = useNavigate();
+
+  const [backendVersion, setBackendVersion] = useState(null);
+
+  useEffect(() => {
+    let cancelled = false;
+    (async () => {
+      try {
+        const res = await fetch("/api/v1/version", { credentials: "include" }); // served by backend
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const data = await res.json();
+        if (!cancelled) setBackendVersion(data?.version ?? "unknown");
+      } catch {
+        if (!cancelled) setBackendVersion("unknown");
+      }
+    })();
+    return () => { cancelled = true; };
+  }, []);
 
   const handleClick = (route) => {
     if (route === "logout") {
@@ -92,9 +109,9 @@ const SideMenu = ({ activeMenu }) => {
           Logout
         </button>
 
-        {/* Version text */}
-        <p className="mt-2 px-6 text-xs text-gray-400 select-all">
-          Version {APP_VERSION}
+        {/* Versions */}
+        <p className="mt-2 px-6 text-[11px] text-gray-400 select-all">
+          Frontend {APP_VERSION} • Backend {backendVersion ?? "unknown"}
         </p>
       </div>
     </div>
