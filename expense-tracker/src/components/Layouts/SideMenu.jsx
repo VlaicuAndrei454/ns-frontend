@@ -5,7 +5,8 @@ import { SIDE_MENU_DATA } from "../../utils/data";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../../context/UserContext";
 import CharAvatar from "../Cards/CharAvatar";
-import { LuLogOut } from "react-icons/lu";        // ← use the installed icon
+import { LuLogOut } from "react-icons/lu"; // ← use the installed icon
+
 const APP_VERSION = "v0.1.0"; // ← hardcoded version
 
 const SideMenu = ({ activeMenu }) => {
@@ -35,7 +36,7 @@ const SideMenu = ({ activeMenu }) => {
         border-r border-gray-200/50
         p-5
         sticky top-[61px] z-20
-        flex flex-col                     {/* full-height column flex */}
+        flex flex-col
       "
     >
       {/* Profile */}
@@ -77,8 +78,8 @@ const SideMenu = ({ activeMenu }) => {
         ))}
       </nav>
 
-      {/* Logout pinned to bottom */}
-      <div className="mt-auto">
+      {/* Footer pinned to bottom */}
+      <div className="mt-auto pt-4 border-t border-gray-100">
         <button
           onClick={handleLogout}
           className="
@@ -86,23 +87,6 @@ const SideMenu = ({ activeMenu }) => {
             py-3 px-6 rounded-lg
             text-red-600 hover:text-red-800
           "
-        >
-          <LuLogOut className="text-xl" />
-          Logout
-        </button>
-      </div>
-    </div>
-  );
-
-  return (
-    <div className="w-64 h-[calc(100vh-61px)] bg-white border-r border-gray-200/50 p-5 sticky top-[61px] z-20 flex flex-col">
-      {/* ...profile + nav */}
-
-      {/* Footer pinned to bottom */}
-      <div className="mt-auto">
-        <button
-          onClick={handleLogout}
-          className="w-full flex items-center gap-4 py-3 px-6 rounded-lg text-red-600 hover:text-red-800"
         >
           <LuLogOut className="text-xl" />
           Logout
