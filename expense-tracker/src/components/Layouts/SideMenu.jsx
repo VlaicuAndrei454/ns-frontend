@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { UserContext } from "../../context/UserContext";
 import CharAvatar from "../Cards/CharAvatar";
 import { LuLogOut } from "react-icons/lu";        // ← use the installed icon
+const APP_VERSION = "v0.1.0"; // ← hardcoded version
 
 const SideMenu = ({ activeMenu }) => {
   const { user, clearUser } = useContext(UserContext);
@@ -89,6 +90,28 @@ const SideMenu = ({ activeMenu }) => {
           <LuLogOut className="text-xl" />
           Logout
         </button>
+      </div>
+    </div>
+  );
+
+  return (
+    <div className="w-64 h-[calc(100vh-61px)] bg-white border-r border-gray-200/50 p-5 sticky top-[61px] z-20 flex flex-col">
+      {/* ...profile + nav */}
+
+      {/* Footer pinned to bottom */}
+      <div className="mt-auto">
+        <button
+          onClick={handleLogout}
+          className="w-full flex items-center gap-4 py-3 px-6 rounded-lg text-red-600 hover:text-red-800"
+        >
+          <LuLogOut className="text-xl" />
+          Logout
+        </button>
+
+        {/* Version text */}
+        <p className="mt-2 px-6 text-xs text-gray-400 select-all">
+          Version {APP_VERSION}
+        </p>
       </div>
     </div>
   );
