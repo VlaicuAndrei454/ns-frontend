@@ -7,7 +7,7 @@ import { UserContext } from "../../context/UserContext";
 import CharAvatar from "../Cards/CharAvatar";
 import { LuLogOut } from "react-icons/lu";
 
-const APP_VERSION = "v0.2.0"; // frontend version (hardcoded in FE)
+const APP_VERSION = "v0.3.0"; // frontend version (hardcoded in FE)
 
 const SideMenu = ({ activeMenu }) => {
   const { user, clearUser } = useContext(UserContext);
